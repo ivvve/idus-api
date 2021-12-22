@@ -21,4 +21,4 @@
 
 ## Documentation
 
-- [ ] Swagger UI
+- [x] Swagger UI
