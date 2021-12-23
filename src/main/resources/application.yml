@@ -1,6 +1,32 @@
 spring:
+  datasource:
+    write:
+      hikari:
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/idus
+        username: root
+        password: root
+        maximum-pool-size: 10
+        connection-timeout: 5000 # 5 secs
+    read-only:
+      hikari:
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/idus
+        username: root
+        password: root
+        maximum-pool-size: 10
+        connection-timeout: 5000 # 5 secs
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update # TODO apply flyway to migrate Database Schema & change this config value
+
   flyway:
     enabled: false
+
+logging:
+  level:
+    com.idus.hw: debug
 
 springfox:
   documentation:
