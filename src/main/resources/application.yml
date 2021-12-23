@@ -19,10 +19,13 @@ spring:
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: update # TODO apply flyway to migrate Database Schema & change this config value
+      ddl-auto: none
 
   flyway:
-    enabled: false
+    enabled: true
+    url: jdbc:mysql://127.0.0.1:3306/idus
+    user: root
+    password: root
 
 logging:
   level:
