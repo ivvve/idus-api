@@ -9,7 +9,7 @@
   - [ ] Password rule
 - [ ] Auth method (Session or JWT)
   - [ ] Abstract Auth process or Use Spring Security
-- [ ] Database Replication related Spring Data JPA configuration
+- [x] Database Replication related Spring Data JPA configuration
 - [ ] Time and Time Zone
 
 ## Infrastructure
