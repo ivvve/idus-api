@@ -1,4 +1,4 @@
-package com.idus.hw.core.entity.user;
+package com.idus.hw.core.user.domain.user.entity;
 
 import lombok.Getter;
 import org.hibernate.annotations.Subselect;

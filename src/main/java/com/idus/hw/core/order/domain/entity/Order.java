@@ -1,4 +1,4 @@
-package com.idus.hw.core.entity.order;
+package com.idus.hw.core.order.domain.entity;
 
 import com.idus.hw.common.jpa.BaseEntity;
 import lombok.AccessLevel;

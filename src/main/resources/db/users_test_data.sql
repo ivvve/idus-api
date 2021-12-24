@@ -22,7 +22,7 @@ BEGIN
                     concat('nickname', i),
                     concat('Passw@rd', i),
                     concat('0101111', i),
-                    concat(concat('email, i'), '@gmail.com'),
+                    concat(concat('email', i), '@gmail.com'),
                     case i % 3
                         when 0 then 'MALE'
                         when 1 then 'FEMALE'
