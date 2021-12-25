@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    write:
+      hikari:
+        jdbc-url: testcontainer-url
+        username: testcontainer-username
+        password: testcontainer-password
+        maximum-pool-size: 10
+        connection-timeout: 5000 # 5 secs
+    read-only:
+      hikari:
+        jdbc-url: testcontainer-url
+        username: testcontainer-username
+        password: testcontainer-password
+        maximum-pool-size: 10
+        connection-timeout: 5000 # 5 secs
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    url: testcontainer-url
+    user: testcontainer-username
+    password: testcontainer-password
+
+logging:
+  level:
+    com.idus.hw: debug
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: false
