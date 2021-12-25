@@ -12,7 +12,7 @@ BEGIN
         DO
             INSERT INTO idus.users(name,
                                    nickname,
-                                   password,
+                                   encoded_password,
                                    phone_number,
                                    email,
                                    gender,

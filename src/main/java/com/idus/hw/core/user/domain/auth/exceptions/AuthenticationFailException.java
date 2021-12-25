@@ -1,8 +1,8 @@
 package com.idus.hw.core.user.domain.auth.exceptions;
 
-import com.idus.hw.common.exceptions.AuthorizationException;
+import com.idus.hw.common.exceptions.AuthenticationException;
 
-public class AuthenticationFailException extends AuthorizationException {
+public class AuthenticationFailException extends AuthenticationException {
     private AuthenticationFailException(String message) {
         super(message);
     }
