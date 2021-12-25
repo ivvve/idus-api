@@ -53,6 +53,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(this.authenticationFilter(), CsrfFilter.class)
 
                 .authorizeRequests()
+                // Swagger UI permission
+                .antMatchers("/swagger-ui/index.html", "/swagger-ui/**", "/swagger/**", "/swagger-resources/**", "/v3/api-docs").permitAll()
                 .anyRequest().authenticated()
                 .and()
 

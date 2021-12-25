@@ -1,7 +1,7 @@
 package com.idus.hw.core.user.domain.user.entity;
 
 import com.idus.hw.common.jpa.BaseEntity;
-import com.idus.hw.common.validation.validator.EmailValidator;
+import com.idus.hw.common.validation.validator.EmailFormatValidator;
 import com.idus.hw.core.user.domain.user.exceptions.UserDomainValueException;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -42,7 +42,7 @@ public class User extends BaseEntity {
     }
 
     private void validateAndSetEmail(String email) {
-        if (!EmailValidator.isValid(email)) {
+        if (!EmailFormatValidator.isValid(email)) {
             throw new UserDomainValueException("User.email", email);
         }
 
