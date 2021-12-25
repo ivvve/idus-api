@@ -1,7 +1,7 @@
 package com.idus.hw.ui.web.auth;
 
 import com.idus.hw.common.validation.annotation.EmailFormat;
-import com.idus.hw.common.validation.annotation.PasswordFormat;
+import com.idus.hw.common.validation.annotation.UserPasswordFormat;
 import com.idus.hw.common.web.dto.BaseResponse;
 import io.swagger.annotations.ApiOperation;
 import lombok.Data;
@@ -26,7 +26,7 @@ public class AuthLoginController {
         private String email;
 
         @NotNull
-        @PasswordFormat
+        @UserPasswordFormat
         private String password;
     }
 

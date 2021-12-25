@@ -1,16 +1,16 @@
 package com.idus.hw.common.validation.validator;
 
-import com.idus.hw.common.validation.annotation.EmailFormat;
-import com.idus.hw.common.validation.checker.EmailFormatChecker;
+import com.idus.hw.common.validation.annotation.PhoneNumberFormat;
+import com.idus.hw.common.validation.checker.PhoneNumberFormatChecker;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class EmailFormatValidator implements ConstraintValidator<EmailFormat, String> {
+public class PhoneNumberFormatValidator implements ConstraintValidator<PhoneNumberFormat, String> {
     private boolean nullable = false;
 
     @Override
-    public void initialize(EmailFormat constraintAnnotation) {
+    public void initialize(PhoneNumberFormat constraintAnnotation) {
         this.nullable = constraintAnnotation.nullable();
     }
 
@@ -20,6 +20,6 @@ public class EmailFormatValidator implements ConstraintValidator<EmailFormat, St
             return true;
         }
 
-        return EmailFormatChecker.check(value);
+        return PhoneNumberFormatChecker.check(value);
     }
 }

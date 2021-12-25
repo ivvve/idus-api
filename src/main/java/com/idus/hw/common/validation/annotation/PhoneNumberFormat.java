@@ -1,6 +1,6 @@
 package com.idus.hw.common.validation.annotation;
 
-import com.idus.hw.common.validation.validator.EmailFormatValidator;
+import com.idus.hw.common.validation.validator.PhoneNumberFormatValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,9 +9,9 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = {EmailFormatValidator.class})
-public @interface EmailFormat {
-    String message() default "Email validation error";
+@Constraint(validatedBy = {PhoneNumberFormatValidator.class})
+public @interface PhoneNumberFormat {
+    String message() default "PhoneNumber validation error";
 
     Class<?>[] groups() default {};
 

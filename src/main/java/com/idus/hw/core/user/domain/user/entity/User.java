@@ -1,7 +1,10 @@
 package com.idus.hw.core.user.domain.user.entity;
 
 import com.idus.hw.common.jpa.BaseEntity;
-import com.idus.hw.common.validation.validator.EmailFormatValidator;
+import com.idus.hw.common.validation.checker.EmailFormatChecker;
+import com.idus.hw.common.validation.checker.PhoneNumberFormatChecker;
+import com.idus.hw.common.validation.checker.UserNameFormatChecker;
+import com.idus.hw.common.validation.checker.UserNicknameFormatChecker;
 import com.idus.hw.core.user.domain.user.exceptions.UserDomainValueException;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -31,18 +34,25 @@ public class User extends BaseEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    // nullable
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @Builder
-    private User(String email, String encodedPassword) {
+    private User(String email, String encodedPassword,
+                 String name, String nickname, String phoneNumber,
+                 Gender gender) {
         this.validateAndSetEmail(email);
         this.validateAndSetEncodedPassword(encodedPassword);
+        this.validateAndSetName(name);
+        this.validateAndSetNickname(nickname);
+        this.validateAndSetPhoneNumber(phoneNumber);
+        this.setGender(gender);
     }
 
     private void validateAndSetEmail(String email) {
-        if (!EmailFormatValidator.isValid(email)) {
+        if (!EmailFormatChecker.check(email)) {
             throw new UserDomainValueException("User.email", email);
         }
 
@@ -55,6 +65,34 @@ public class User extends BaseEntity {
         }
 
         this.encodedPassword = encodedPassword;
+    }
+
+    private void validateAndSetName(String name) {
+        if (!UserNameFormatChecker.check(name)) {
+            throw new UserDomainValueException("User.name", name);
+        }
+
+        this.name = name;
+    }
+
+    private void validateAndSetNickname(String nickname) {
+        if (!UserNicknameFormatChecker.check(nickname)) {
+            throw new UserDomainValueException("User.nickname", nickname);
+        }
+
+        this.nickname = nickname;
+    }
+
+    private void validateAndSetPhoneNumber(String phoneNumber) {
+        if (!PhoneNumberFormatChecker.check(phoneNumber)) {
+            throw new UserDomainValueException("User.phoneNumber", phoneNumber);
+        }
+
+        this.phoneNumber = phoneNumber;
+    }
+
+    private void setGender(Gender gender) {
+        this.gender = gender;
     }
 }
 

@@ -12,6 +12,8 @@ import java.util.function.Supplier;
 
 interface InnerUserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }
 
 @Repository
@@ -20,10 +22,24 @@ public class JpaUserRepository implements UserRepository {
     private final InnerUserRepository repository;
 
     @Override
+    public User save(User user) {
+        return this.wrapIntegrationException(
+                () -> this.repository.save(user)
+        );
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) {
-        return this.wrapIntegrationException(() -> {
-            return this.repository.findByEmail(email);
-        });
+        return this.wrapIntegrationException(
+                () -> this.repository.findByEmail(email)
+        );
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return this.wrapIntegrationException(
+                () -> this.repository.existsByEmail(email)
+        );
     }
 
     private <T> T wrapIntegrationException(Supplier<T> process) {

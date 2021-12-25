@@ -55,6 +55,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // Swagger UI permission
                 .antMatchers("/swagger-ui/index.html", "/swagger-ui/**", "/swagger/**", "/swagger-resources/**", "/v3/api-docs").permitAll()
+                // User Join API permission
+                .requestMatchers(new OrRequestMatcher(
+                        new AntPathRequestMatcher(WebConstants.URL.USER_JOIN_PATH, HttpMethod.POST.name()),
+                        new AntPathRequestMatcher(WebConstants.URL.USER_JOIN_PATH_WITH_TRAILING_SLASH, HttpMethod.POST.name())
+                )).permitAll()
                 .anyRequest().authenticated()
                 .and()
 

@@ -12,6 +12,7 @@ public class MockUserRepository implements UserRepository {
     private final Map<Long, User> users = new HashMap<>();
     private long id = 1;
 
+    @Override
     public User save(User user) {
         ReflectionTestUtils.setField(user, "id", this.id);
         this.id++;
@@ -25,6 +26,11 @@ public class MockUserRepository implements UserRepository {
         return this.users.values().stream()
                 .filter(it -> it.getEmail().equals(email))
                 .findFirst();
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return this.findByEmail(email).isPresent();
     }
 
     public void reset() {

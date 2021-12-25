@@ -12,6 +12,9 @@ public class WebConstants {
 
         public static final String LOGOUT_REQUEST_PATH = "/logout";
         public static final String LOGOUT_REQUEST_PATH_WITH_TRAILING_SLASH = LOGOUT_REQUEST_PATH + "/";
+
+        public static final String USER_JOIN_PATH = "/users";
+        public static final String USER_JOIN_PATH_WITH_TRAILING_SLASH = USER_JOIN_PATH + "/";
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

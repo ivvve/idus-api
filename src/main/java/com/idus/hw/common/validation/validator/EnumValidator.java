@@ -1,17 +1,19 @@
 package com.idus.hw.common.validation.validator;
 
-import com.idus.hw.common.validation.annotation.EmailFormat;
-import com.idus.hw.common.validation.checker.EmailFormatChecker;
+import com.idus.hw.common.validation.annotation.EnumFormat;
+import com.idus.hw.common.validation.checker.EnumFormatChecker;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class EmailFormatValidator implements ConstraintValidator<EmailFormat, String> {
+public class EnumValidator implements ConstraintValidator<EnumFormat, String> {
     private boolean nullable = false;
+    private Class<? extends Enum> enumClass;
 
     @Override
-    public void initialize(EmailFormat constraintAnnotation) {
+    public void initialize(EnumFormat constraintAnnotation) {
         this.nullable = constraintAnnotation.nullable();
+        enumClass = constraintAnnotation.enumClass();
     }
 
     @Override
@@ -20,6 +22,6 @@ public class EmailFormatValidator implements ConstraintValidator<EmailFormat, St
             return true;
         }
 
-        return EmailFormatChecker.check(value);
+        return EnumFormatChecker.check(enumClass, value);
     }
 }

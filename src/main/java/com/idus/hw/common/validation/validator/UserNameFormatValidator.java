@@ -1,16 +1,16 @@
 package com.idus.hw.common.validation.validator;
 
-import com.idus.hw.common.validation.annotation.EmailFormat;
-import com.idus.hw.common.validation.checker.EmailFormatChecker;
+import com.idus.hw.common.validation.annotation.UserNameFormat;
+import com.idus.hw.common.validation.checker.UserNameFormatChecker;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class EmailFormatValidator implements ConstraintValidator<EmailFormat, String> {
+public class UserNameFormatValidator implements ConstraintValidator<UserNameFormat, String> {
     private boolean nullable = false;
 
     @Override
-    public void initialize(EmailFormat constraintAnnotation) {
+    public void initialize(UserNameFormat constraintAnnotation) {
         this.nullable = constraintAnnotation.nullable();
     }
 
@@ -20,6 +20,6 @@ public class EmailFormatValidator implements ConstraintValidator<EmailFormat, St
             return true;
         }
 
-        return EmailFormatChecker.check(value);
+        return UserNameFormatChecker.check(value);
     }
 }

@@ -1,15 +1,19 @@
-package com.idus.hw.common.validation.validator;
+package com.idus.hw.common.validation.checker;
 
-import com.idus.hw.common.validation.annotation.PasswordFormat;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
-public class PasswordFormatValidator implements ConstraintValidator<PasswordFormat, String> {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class UserPasswordFormatChecker {
     private static final int PASSWORD_MIN_LENGTH = 10;
     private static final String SPECIAL_CHARACTERS = "/*!@#$%^&*()\\\"{}_[]|\\?/<>,.";
 
-    public static boolean isValid(String mayPassword) {
+    public static boolean check(String mayPassword) {
+        if (StringUtils.isBlank(mayPassword)) {
+            return false;
+        }
+
         if (!isValidLength(mayPassword)) {
             return false;
         }
@@ -68,10 +72,5 @@ public class PasswordFormatValidator implements ConstraintValidator<PasswordForm
 
     private static boolean isSpecialCharacter(char c) {
         return 0 <= SPECIAL_CHARACTERS.indexOf(c);
-    }
-
-    @Override
-    public boolean isValid(String value, ConstraintValidatorContext context) {
-        return isValid(value);
     }
 }
