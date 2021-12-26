@@ -5,7 +5,7 @@ CREATE TABLE idus.orders
     user_id      BIGINT       NOT NULL,
     order_number VARCHAR(50)  NOT NULL,
     product_name VARCHAR(200) NOT NULL,
-    ordered_at   DATETIME     NOT NULL,
+    paid_at      DATETIME     NOT NULL,
     created_at   DATETIME     NOT NULL,
     updated_at   DATETIME     NOT NULL
 );

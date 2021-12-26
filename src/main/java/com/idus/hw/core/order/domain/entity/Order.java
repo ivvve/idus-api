@@ -2,6 +2,7 @@ package com.idus.hw.core.order.domain.entity;
 
 import com.idus.hw.common.jpa.BaseEntity;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,16 @@ public class Order extends BaseEntity {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "ordered_at")
-    private Instant orderedAt;
+    @Column(name = "paid_at")
+    private Instant paidAt;
+
+    @Builder
+    private Order(Long userId, String orderNumber,
+                  String productName, Instant paidAt) {
+        // skip validation on purpose
+        this.userId = userId;
+        this.orderNumber = orderNumber;
+        this.productName = productName;
+        this.paidAt = paidAt;
+    }
 }

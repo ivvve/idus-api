@@ -3,18 +3,20 @@ package com.idus.hw;
 import io.restassured.RestAssured;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
+
+import java.util.List;
 
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class IntegrationTest {
     private static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.0");
-    @LocalServerPort
-    private int serverPort;
 
     @DynamicPropertySource
     public static void registerMySQLProperties(DynamicPropertyRegistry propertyRegistry) {
@@ -33,7 +35,9 @@ public class IntegrationTest {
                 .withUsername("root")
                 .withPassword("root")
                 .withDatabaseName("idus")
-                .withReuse(true)
+                // enable `withReuse` to speed up container startup
+                // reference: https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
+//                .withReuse(true)
                 .start();
 
         log.info("MySQL Test Container is now running");
@@ -54,8 +58,23 @@ public class IntegrationTest {
         propertyRegistry.add("spring.flyway.password", mySQLContainer::getPassword);
     }
 
+    @LocalServerPort
+    private int serverPort;
+
+    @Autowired
+    private List<JpaRepository> repositories;
+
     @BeforeEach
     void beforeEach() {
+        this.setUpRestAssured();
+        this.clearData();
+    }
+
+    private void setUpRestAssured() {
         RestAssured.port = serverPort;
+    }
+
+    private void clearData() {
+        this.repositories.forEach(JpaRepository::deleteAllInBatch);
     }
 }

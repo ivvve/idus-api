@@ -13,7 +13,7 @@ BEGIN
             INSERT INTO idus.orders(user_id,
                                     order_number,
                                     product_name,
-                                    ordered_at,
+                                    paid_at,
                                     created_at,
                                     updated_at)
             VALUES (i % 100 + 1,

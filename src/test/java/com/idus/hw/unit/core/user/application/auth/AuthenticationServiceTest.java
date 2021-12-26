@@ -5,6 +5,7 @@ import com.idus.hw.core.user.domain.auth.exceptions.AuthenticationFailException;
 import com.idus.hw.core.user.domain.user.entity.User;
 import com.idus.hw.mock.core.user.domain.auth.MockPasswordEncoder;
 import com.idus.hw.mock.core.user.domain.user.MockUserRepository;
+import com.idus.hw.utils.user.UserTestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -25,9 +26,8 @@ class AuthenticationServiceTest {
     }
 
     private User testUser(String email) {
-        return User.builder()
+        return UserTestUtils.userBuilder()
                 .email(email)
-                .encodedPassword("$argon2i$v=19$m=16,t=2,p=1$YXNkc3ZzYWVy$k0VGBYd0BQywavDv/Cve5A")
                 .build();
     }
 
