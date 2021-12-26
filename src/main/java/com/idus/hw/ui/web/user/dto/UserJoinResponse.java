@@ -15,12 +15,13 @@ public class UserJoinResponse {
     private String gender;
 
     public static UserJoinResponse of(User user) {
+        var gender = user.getGender();
         return UserJoinResponse.builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .name(user.getName())
                 .nickname(user.getNickname())
-                .gender(user.getGender().name())
+                .gender((gender == null) ? null : gender.name())
                 .build();
     }
 }

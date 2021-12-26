@@ -70,7 +70,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         try {
             var requestBody = request.getReader().lines()
                     .collect(joining(System.lineSeparator()));
-            return (Map<String, String>) new ObjectMapper().readValue(requestBody, Map.class);
+            return new ObjectMapper().readValue(requestBody, Map.class);
         } catch (Exception e) {
             throw new AuthenticationException("Fail to achieve JSON request body", e);
         }
@@ -89,6 +89,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String getRequestPassword(Map<String, String> requestBody) {
-        return requestBody.get(WebConstants.RequestParameter.LOGIN_EMAIL);
+        return requestBody.get(WebConstants.RequestParameter.LOGIN_PASSWORD);
     }
 }

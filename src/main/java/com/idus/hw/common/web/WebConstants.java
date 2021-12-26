@@ -24,6 +24,11 @@ public class WebConstants {
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class RequestHeader {
+        public final static String X_TIME_ZONE = "X-Time-Zone";
+    }
+
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class ResponseParameter {
         public final static String SUCCESS = "success";
         public final static String MESSAGE = "message";
