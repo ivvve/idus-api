@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 import static com.idus.hw.core.order.domain.entity.QOrder.order;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class LatestOrderOfUsersQueryService {
     private final JPAQueryFactory jpaQueryFactory;
 
-    @Transactional(readOnly = true)
     public List<Order> getLatestOrderOfUsers(List<Long> userIds) {
         var latestOrderOfUsers = this.getLatestOrderInfoOfUsers(userIds);
         var latestOrderIdOfUsers = this.extractOrderIdFrom(latestOrderOfUsers);

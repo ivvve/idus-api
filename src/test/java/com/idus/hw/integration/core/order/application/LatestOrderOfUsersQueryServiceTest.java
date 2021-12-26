@@ -26,11 +26,6 @@ class LatestOrderOfUsersQueryServiceTest extends IntegrationTest {
     @Autowired
     JpaOrderRepository jpaOrderRepository;
 
-    @BeforeEach
-    void aa() {
-        jpaOrderRepository.deleteAll();
-    }
-
     @DisplayName("getLatestOrderOfUsers 메서드는")
     @Nested
     class getLatestOrderOfUsers {

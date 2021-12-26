@@ -13,11 +13,11 @@ import java.util.Optional;
 import static com.idus.hw.core.order.domain.entity.QOrder.order;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrdersOfUserQueryService {
     private final JPAQueryFactory jpaQueryFactory;
 
-    @Transactional(readOnly = true)
     public List<Order> getOrdersOfUserByLatestOrder(
             long userId, int pageSize
     ) {
@@ -26,7 +26,6 @@ public class OrdersOfUserQueryService {
         );
     }
 
-    @Transactional(readOnly = true)
     public List<Order> getOrdersOfUserByLatestOrder(
             long userId, long lastReadOrderId, int pageSize
     ) {

@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 
 @Slf4j
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserJoinService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Transactional
     public User join(String email, String password, String name, String nickname,
                      String phoneNumber, @Nullable Gender gender) {
         var userWithEmailExists = this.userRepository.existsByEmail(email);

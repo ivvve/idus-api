@@ -42,6 +42,11 @@ public class JpaUserRepository implements UserRepository {
         );
     }
 
+    @Override
+    public Optional<User> findById(long userId) {
+        return this.repository.findById(userId);
+    }
+
     private <T> T wrapIntegrationException(Supplier<T> process) {
         try {
             return process.get();

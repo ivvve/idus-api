@@ -1,6 +1,6 @@
 package com.idus.hw.common.validation.checker;
 
-import com.idus.hw.common.utils.KoreanUtils;
+import com.idus.hw.common.string.KoreanUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;

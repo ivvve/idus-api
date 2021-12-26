@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.test.util.ReflectionTestUtils;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserTestUtils {
+public class UserTestHelper {
     public static User.UserBuilder userBuilder() {
         return User.builder()
                 .email("tester@gmail.com")

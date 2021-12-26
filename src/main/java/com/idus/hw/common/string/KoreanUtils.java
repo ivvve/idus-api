@@ -1,4 +1,4 @@
-package com.idus.hw.common.utils;
+package com.idus.hw.common.string;
 
 import java.util.regex.Pattern;
 

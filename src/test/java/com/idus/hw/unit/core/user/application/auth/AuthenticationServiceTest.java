@@ -5,7 +5,7 @@ import com.idus.hw.core.user.domain.auth.exceptions.AuthenticationFailException;
 import com.idus.hw.core.user.domain.user.entity.User;
 import com.idus.hw.mock.core.user.domain.auth.MockPasswordEncoder;
 import com.idus.hw.mock.core.user.domain.user.MockUserRepository;
-import com.idus.hw.utils.user.UserTestUtils;
+import com.idus.hw.utils.user.UserTestHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -26,7 +26,7 @@ class AuthenticationServiceTest {
     }
 
     private User testUser(String email) {
-        return UserTestUtils.userBuilder()
+        return UserTestHelper.userBuilder()
                 .email(email)
                 .build();
     }

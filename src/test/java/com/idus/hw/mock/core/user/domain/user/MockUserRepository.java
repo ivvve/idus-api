@@ -33,6 +33,11 @@ public class MockUserRepository implements UserRepository {
         return this.findByEmail(email).isPresent();
     }
 
+    @Override
+    public Optional<User> findById(long userId) {
+        return Optional.ofNullable(this.users.get(userId));
+    }
+
     public void reset() {
         this.users.clear();
     }
