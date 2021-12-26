@@ -43,7 +43,7 @@ class UserSearchPaginationQueryServiceTest extends IntegrationTest {
         @Nested
         class whenNoKeyword {
 
-            @DisplayName("유저 ID 역순으로 유저 목록을 가져온다")
+            @DisplayName("회원 ID 역순으로 회원 목록을 가져온다")
             @Test
             void aa() {
                 // given
@@ -73,7 +73,7 @@ class UserSearchPaginationQueryServiceTest extends IntegrationTest {
     @Nested
     class whenEmailKeyword {
 
-        @DisplayName("해당 이메일 조건에 맞는 유저 목록을 가져온다")
+        @DisplayName("해당 이메일 조건에 맞는 회원 목록을 가져온다")
         @Test
         void aa() {
             // given
@@ -104,7 +104,7 @@ class UserSearchPaginationQueryServiceTest extends IntegrationTest {
     @Nested
     class whenNameKeyword {
 
-        @DisplayName("해당 이름 조건에 맞는 유저 목록을 가져온다")
+        @DisplayName("해당 이름 조건에 맞는 회원 목록을 가져온다")
         @Test
         void aa() {
             // given

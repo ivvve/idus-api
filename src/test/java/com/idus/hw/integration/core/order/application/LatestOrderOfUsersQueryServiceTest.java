@@ -30,7 +30,7 @@ class LatestOrderOfUsersQueryServiceTest extends IntegrationTest {
     @Nested
     class getLatestOrderOfUsers {
 
-        @DisplayName("유저의 마지막 주문을 조회한다")
+        @DisplayName("회원의 마지막 주문을 조회한다")
         @Test
         void getLatestOrderOfUsers() {
             // given

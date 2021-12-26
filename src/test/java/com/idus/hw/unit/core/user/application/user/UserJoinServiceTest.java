@@ -24,7 +24,7 @@ class UserJoinServiceTest {
 
     @Nested
     class join {
-        @DisplayName("새로운 유저를 가입시킨다 - 성별을 입력하지 않는 경우")
+        @DisplayName("새로운 회원을 가입시킨다 - 성별을 입력하지 않는 경우")
         @Test
         void joinWithoutGender() {
             // when
@@ -39,7 +39,7 @@ class UserJoinServiceTest {
             assertThat(joinedUser.getGender()).isEqualTo(null);
         }
 
-        @DisplayName("새로운 유저를 가입시킨다 - 성별을 같이 입력한 경우")
+        @DisplayName("새로운 회원을 가입시킨다 - 성별을 같이 입력한 경우")
         @Test
         void joinWithGender() {
             // when

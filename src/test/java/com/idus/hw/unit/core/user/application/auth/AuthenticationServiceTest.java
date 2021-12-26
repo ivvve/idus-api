@@ -34,7 +34,7 @@ class AuthenticationServiceTest {
     @DisplayName("authenticate 메서드는")
     @Nested
     class authenticate {
-        @DisplayName("유저 인증을 하고 인증된 유저의 User 객체를 리턴한다")
+        @DisplayName("회원 인증을 하고 인증된 회원의 User 객체를 리턴한다")
         @Test
         void authenticatesUser() {
             // given
@@ -48,7 +48,7 @@ class AuthenticationServiceTest {
             assertThat(authenticatedUser.getEmail()).isEqualTo("tester@gmail.com");
         }
 
-        @DisplayName("입력된 email로 등록된 유저가 없는 경우 AuthenticationFailException을 throw 한다")
+        @DisplayName("입력된 email로 등록된 회원이 없는 경우 AuthenticationFailException을 throw 한다")
         @Test
         void failWhenUserNotRegistered() {
             // when & then
