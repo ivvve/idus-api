@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -28,6 +29,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private final AuthenticationManager authenticationManager;
     private final AuthenticationSuccessHandler authenticationSuccessHandler;
     private final AuthenticationFailHandler authenticationFailHandler;
+    private final SessionAuthenticationStrategy sessionAuthenticationStrategy;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -40,6 +42,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         try {
             var authentication = this.attemptAuthentication(request);
+            this.sessionAuthenticationStrategy.onAuthentication(authentication, request, response);
             this.authenticationSuccessHandler.handle(request, response, authentication);
         } catch (AuthenticationException e) {
             this.authenticationFailHandler.handle(request, response, e);

@@ -21,6 +21,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
@@ -90,7 +91,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 ),
                 super.authenticationManager(),
                 new AuthenticationSuccessHandler(),
-                new AuthenticationFailHandler()
+                new AuthenticationFailHandler(),
+                new SessionFixationProtectionStrategy()
         );
     }
 
