@@ -1,6 +1,6 @@
 package com.idus.hw.integration.core.user.application;
 
-import com.idus.hw.IntegrationTest;
+import com.idus.hw.integration.IntegrationTest;
 import com.idus.hw.core.user.application.user.UserSearchPaginationQueryService;
 import com.idus.hw.core.user.domain.user.UserRepository;
 import com.idus.hw.core.user.domain.user.entity.User;

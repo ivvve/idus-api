@@ -1,9 +1,12 @@
 package com.idus.hw.common.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class BaseResponse<T> {
     private static final String SUCCESS_MESSAGE = "OK";
     @JsonProperty("success")

@@ -1,8 +1,10 @@
 package com.idus.hw.ui.web.user.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.idus.hw.common.validation.annotation.*;
 import com.idus.hw.core.user.domain.user.entity.Gender;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -38,6 +40,7 @@ public class UserJoinRequest {
     @JsonProperty("gender")
     private String gender;
 
+    @ApiModelProperty(hidden = true)
     public Gender getGenderEnumOrNull() {
         if (gender == null) {
             return null;

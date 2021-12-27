@@ -68,6 +68,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
 
+                .exceptionHandling()
+                .authenticationEntryPoint(((request, response, authException) -> {
+                    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                    response.setStatus(HttpStatus.FORBIDDEN.value());
+                    response.getWriter().println(
+                            new ObjectMapper().writeValueAsString(BaseResponse.fail(authException.getMessage()))
+                    );
+                }))
+                .and()
+
                 .logout()
                 .logoutRequestMatcher(new OrRequestMatcher(
                         new AntPathRequestMatcher(WebConstants.URL.LOGOUT_REQUEST_PATH, HttpMethod.POST.name()),

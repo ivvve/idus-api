@@ -1,6 +1,6 @@
 package com.idus.hw.integration.core.order.application;
 
-import com.idus.hw.IntegrationTest;
+import com.idus.hw.integration.IntegrationTest;
 import com.idus.hw.core.order.domain.application.OrdersOfUserQueryService;
 import com.idus.hw.core.order.domain.entity.Order;
 import com.idus.hw.core.order.domain.infrastructure.JpaOrderRepository;

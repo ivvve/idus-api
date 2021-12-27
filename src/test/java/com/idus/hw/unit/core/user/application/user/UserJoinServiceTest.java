@@ -22,6 +22,7 @@ class UserJoinServiceTest {
         userRepository.reset();
     }
 
+    @DisplayName("join 메서드는")
     @Nested
     class join {
         @DisplayName("새로운 회원을 가입시킨다 - 성별을 입력하지 않는 경우")

@@ -4,16 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.idus.hw.common.collection.CollectionConverter;
 import com.idus.hw.common.time.TimeFormattingUtils;
 import com.idus.hw.core.order.domain.entity.Order;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.time.ZoneId;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserOrdersResponse {
     @JsonProperty("content")
     private List<UserOrder> contents;
@@ -25,6 +23,8 @@ public class UserOrdersResponse {
 
     @Data
     @Builder(access = AccessLevel.PRIVATE)
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class UserOrder {
         private long id;
         private String orderNumber;

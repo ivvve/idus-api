@@ -2,12 +2,12 @@ package com.idus.hw.ui.web.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.idus.hw.core.user.domain.user.entity.User;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @Builder(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserJoinResponse {
     @JsonProperty("id")
     private long id;

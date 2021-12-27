@@ -1,10 +1,9 @@
 package com.idus.hw.integration.core.order.application;
 
-import com.idus.hw.IntegrationTest;
+import com.idus.hw.integration.IntegrationTest;
 import com.idus.hw.core.order.domain.application.LatestOrderOfUsersQueryService;
 import com.idus.hw.core.order.domain.entity.Order;
 import com.idus.hw.core.order.domain.infrastructure.JpaOrderRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
