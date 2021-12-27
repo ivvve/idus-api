@@ -1,4 +1,4 @@
-package com.idus.hw.core.order.domain.application.dto;
+package com.idus.hw.core.order.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

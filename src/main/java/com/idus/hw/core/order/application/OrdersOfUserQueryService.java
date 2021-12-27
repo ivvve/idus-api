@@ -1,4 +1,4 @@
-package com.idus.hw.core.order.domain.application;
+package com.idus.hw.core.order.application;
 
 import com.idus.hw.core.order.domain.entity.Order;
 import com.querydsl.core.types.dsl.BooleanExpression;

@@ -1,4 +1,4 @@
-package com.idus.hw.core.order.domain.infrastructure;
+package com.idus.hw.core.order.infrastructure;
 
 import com.idus.hw.core.order.domain.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.idus.hw.core.order.domain.application;
+package com.idus.hw.core.order.application;
 
-import com.idus.hw.core.order.domain.application.dto.LatestUserOrderInfo;
+import com.idus.hw.core.order.application.dto.LatestUserOrderInfo;
 import com.idus.hw.core.order.domain.entity.Order;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;

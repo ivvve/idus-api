@@ -3,7 +3,7 @@ package com.idus.hw.ui.web.user;
 import com.idus.hw.common.collection.CollectionConverter;
 import com.idus.hw.common.pagination.PaginationResult;
 import com.idus.hw.common.web.dto.BaseResponse;
-import com.idus.hw.core.order.domain.application.LatestOrderOfUsersQueryService;
+import com.idus.hw.core.order.application.LatestOrderOfUsersQueryService;
 import com.idus.hw.core.order.domain.entity.Order;
 import com.idus.hw.core.user.application.user.UserSearchPaginationQueryService;
 import com.idus.hw.core.user.domain.user.entity.User;

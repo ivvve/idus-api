@@ -1,7 +1,7 @@
 package com.idus.hw.ui.web.order;
 
 import com.idus.hw.common.web.dto.BaseResponse;
-import com.idus.hw.core.order.domain.application.OrdersOfUserQueryService;
+import com.idus.hw.core.order.application.OrdersOfUserQueryService;
 import com.idus.hw.core.order.domain.entity.Order;
 import com.idus.hw.ui.web.order.dto.UserOrdersRequest;
 import com.idus.hw.ui.web.order.dto.UserOrdersResponse;

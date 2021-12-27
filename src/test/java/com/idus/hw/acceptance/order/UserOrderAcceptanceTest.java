@@ -2,7 +2,7 @@ package com.idus.hw.acceptance.order;
 
 import com.idus.hw.acceptance.AcceptanceTest;
 import com.idus.hw.core.order.domain.entity.Order;
-import com.idus.hw.core.order.domain.infrastructure.JpaOrderRepository;
+import com.idus.hw.core.order.infrastructure.JpaOrderRepository;
 import com.idus.hw.core.user.infrastructure.user.JpaUserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
