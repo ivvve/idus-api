@@ -39,6 +39,38 @@ $ java -jar ./build/libs/hw-0.0.1-SNAPSHOT.jar
 
 서버 실행 후 http://localhost:8080/swagger-ui/index.html 접속
 
+Spring Security로 인해 API 사용 시 로그인 뒤에 사용해야한다
+
+* 회원가입
+
+image::images/swagger-join.png[]
+
+요청 예제
+
+[source,json]
+----
+{
+    "email": "tester@gmail.com",
+    "password": "Passw@rd11",
+    "name": "CHRIS",
+    "nickname": "chris",
+    "phoneNumber": "01011112222",
+    "gender": "MALE"
+}
+----
+
+* 로그인
+
+image::images/swagger-login.png[]
+
+[source,json]
+----
+{
+    "email": "tester@gmail.com",
+    "password": "Passw@rd11"
+}
+----
+
 == 데이터 모델링
 
 image::./images/db-schema.png[]
