@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +21,10 @@ public class LatestOrderOfUsersQueryService {
     private final JPAQueryFactory jpaQueryFactory;
 
     public List<Order> getLatestOrderOfUsers(List<Long> userIds) {
+        if (userIds.isEmpty()) {
+            return Collections.emptyList();
+        }
+
         var latestOrderOfUsers = this.getLatestOrderInfoOfUsers(userIds);
         var latestOrderIdOfUsers = this.extractOrderIdFrom(latestOrderOfUsers);
         return this.getOrders(latestOrderIdOfUsers);

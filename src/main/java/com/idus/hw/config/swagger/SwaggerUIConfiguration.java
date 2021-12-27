@@ -10,6 +10,8 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+import java.time.ZoneId;
+
 import static springfox.documentation.builders.RequestHandlerSelectors.*;
 
 @Configuration
@@ -25,6 +27,7 @@ public class SwaggerUIConfiguration {
                 )
                 .paths(PathSelectors.any())
                 .build()
+                .ignoredParameterTypes(ZoneId.class)
                 .apiInfo(this.apiInfo());
     }
 

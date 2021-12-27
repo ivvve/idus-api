@@ -3,6 +3,7 @@ package com.idus.hw.config.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.idus.hw.common.exceptions.AuthenticationException;
 import com.idus.hw.common.web.WebConstants;
+import com.idus.hw.common.web.dto.BaseResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -23,12 +24,7 @@ public class AuthenticationFailHandler {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.getWriter().println(
-                new ObjectMapper().writeValueAsString(
-                        Map.of(
-                                WebConstants.ResponseParameter.SUCCESS, false,
-                                WebConstants.ResponseParameter.MESSAGE, exception.getMessage()
-                        )
-                )
+                new ObjectMapper().writeValueAsString(BaseResponse.fail(exception.getMessage()))
         );
     }
 }

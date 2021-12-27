@@ -6,9 +6,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Objects;
+
 @Data
 @Builder(access = AccessLevel.PRIVATE)
-public class UserJoinResponse {
+public class UserDetailsResponse {
     @JsonProperty("id")
     private long id;
 
@@ -24,14 +26,15 @@ public class UserJoinResponse {
     @JsonProperty("gender")
     private String gender;
 
-    public static UserJoinResponse of(User user) {
+    public static UserDetailsResponse of(User user) {
         var gender = user.getGender();
-        return UserJoinResponse.builder()
+
+        return UserDetailsResponse.builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .name(user.getName())
                 .nickname(user.getNickname())
-                .gender((gender == null) ? null : gender.name())
+                .gender(Objects.isNull(gender) ? null : gender.name())
                 .build();
     }
 }

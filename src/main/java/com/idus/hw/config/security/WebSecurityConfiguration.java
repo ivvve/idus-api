@@ -1,6 +1,8 @@
 package com.idus.hw.config.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.idus.hw.common.web.WebConstants;
+import com.idus.hw.common.web.dto.BaseResponse;
 import com.idus.hw.config.security.filter.AuthenticationFailHandler;
 import com.idus.hw.config.security.filter.AuthenticationFilter;
 import com.idus.hw.config.security.filter.AuthenticationSuccessHandler;
@@ -11,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -69,7 +73,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         new AntPathRequestMatcher(WebConstants.URL.LOGOUT_REQUEST_PATH_WITH_TRAILING_SLASH, HttpMethod.POST.name())
                 ))
                 .logoutSuccessHandler(((request, response, authentication) -> {
-                    response.getWriter().println("logout");
+                    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                    response.setStatus(HttpStatus.OK.value());
+                    response.getWriter().println(
+                            new ObjectMapper().writeValueAsString(BaseResponse.success())
+                    );
                 }))
                 .deleteCookies(WebConstants.Session.COOKIE_NAME);
     }

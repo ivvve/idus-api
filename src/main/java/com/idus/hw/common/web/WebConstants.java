@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 public class WebConstants {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class URL {
-        public static final String LOGIN_REQUEST_PATH = "/login";
+        public static final String LOGIN_REQUEST_PATH = "/auth/login";
         public static final String LOGIN_REQUEST_PATH_WITH_TRAILING_SLASH = LOGIN_REQUEST_PATH + "/";
 
-        public static final String LOGOUT_REQUEST_PATH = "/logout";
+        public static final String LOGOUT_REQUEST_PATH = "/auth/logout";
         public static final String LOGOUT_REQUEST_PATH_WITH_TRAILING_SLASH = LOGOUT_REQUEST_PATH + "/";
 
         public static final String USER_JOIN_PATH = "/users";
